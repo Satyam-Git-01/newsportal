@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "./components/NavBar";
 import News from "./components/News";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 
 const App = () => {
@@ -10,10 +10,12 @@ const App = () => {
   const [progress, setProgress] = useState(0);
   return (
     <div>
-      <Router>
+      <BrowserRouter>
         <NavBar />
-        <LoadingBar height={3} color="#f11946" progress={progress} />
+        {/* loading bar and progess state varibale to move that accordingly*/}
+        <LoadingBar height={4} color="#f11946" progress={progress} />
         <Routes>
+          {/*different route for different categories */}
           <Route
             exact
             path="/"
@@ -127,7 +129,7 @@ const App = () => {
             }
           ></Route>
         </Routes>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 };
